@@ -7,7 +7,11 @@ const socket=require("socket.io")
 
 
 const app=express();
-app.use(cors());
+var corsOptions = {
+    origin: 'https://chat-app-z4p5.vercel.app',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
+app.use(cors(corsOptions));
 require("dotenv").config();
 
 app.use(express.json());
